@@ -14,6 +14,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require jquery
+//= require jquery3
 //= require popper
 //= require bootstrap
+
+$(document).ready(function(){
+ $('.header').height($(window).height());
+})
