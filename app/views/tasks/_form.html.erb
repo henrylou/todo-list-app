@@ -11,31 +11,49 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :taskname %>
-    <%= form.text_field :taskname %>
+  <div class="form-group field">
+    <div class="control-label col-sm-4">
+      <%= form.label :taskname %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.text_field :taskname, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :deadline %>
-    <%= form.datetime_select :deadline %>
+  <div class="form-group field">
+    <div class="control-label col-sm-4">
+      <%= form.label :deadline %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.datetime_select :deadline, class: "form-control" %>
+    </div>
   </div>
   
-  <div class="field">
-    <%= form.label :importance %>
-    <%= form.radio_button :importance, 3 %> 3 stars
-    <%= form.radio_button :importance, 2 %> 2 stars
-    <%= form.radio_button :importance, 1 %> 1 star
+  <div class="form-group field">
+    <div class="control-label col-sm-4">
+      <%= form.label :importance %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.radio_button :importance, 3 %> 3 stars
+      <%= form.radio_button :importance, 2 %> 2 stars
+      <%= form.radio_button :importance, 1 %> 1 star
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.radio_button :category, "Work" %> Work
-    <%= form.radio_button :category, "School" %> School
-    <%= form.radio_button :category, "Others" %> Others
+  <div class="form-group field">
+    <div class="control-label col-sm-12">
+      <%= form.label :category %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.radio_button :category, "Work" %> Work
+      <%= form.radio_button :category, "School" %> School
+      <%= form.radio_button :category, "Others" %> Others
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group actions">
+    <div class="col-sm-2">    
+      <%= form.submit "Create", class: "btn btn-success" %>
+    </div>
   </div>
 <% end %>
