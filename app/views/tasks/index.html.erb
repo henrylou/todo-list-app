@@ -2,26 +2,32 @@
 
 <h1>Tasks</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
-    <tr class="table-light">
-      <th scope="row">Task Name</th>
-      <th>Deadline</th>
-      <th>Importance</th>
-      <th>Category</th>
-      <th>User</th>
+    <tr>
+      <th scope="col">Task Name</th>
+      <th scope="col">Deadline</th>
+      <th scope="col">Importance</th>
+      <th scope="col">Category</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
+  
   <tbody>
     <% current_user.tasks.each do |task| %> 
+    <% if task.importance == 3 %>
       <tr class="table-danger">
+    <% else %>
+      <tr class="table-warning">
+    <% end %>
         <td scope="row"><%= task.taskname %></td>
         <td><%= task.deadline %></td>
-        <td><%= task.importance %></td>
+        <td>
+          <% (1..task.importance).each { %>
+            <%= icon('fas', 'star') %>        
+          <% } %>
+        </td>
         <td><%= task.category %></td>
-        <td><%= task.user_id %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -30,6 +36,7 @@
   </tbody>
 </table>
 
-<br>
+<div class="form-group col-sm-4">
+  <%= link_to 'New Task', new_task_path, class: "btn btn-success" %>
+</div>
 
-<%= link_to 'New Task', new_task_path %>
