@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th scope="col">Task Name</th>
+      <th scope="col">Time Left</th>
       <th scope="col">Deadline</th>
       <th scope="col">Importance</th>
       <th scope="col">Category</th>
@@ -15,12 +16,16 @@
   
   <tbody>
     <% current_user.tasks.each do |task| %> 
-    <% if task.importance == 3 %>
+    <% time_left = task.deadline - Time.now %>
+    <% if time_left <= 24.hours %>
       <tr class="table-danger">
-    <% else %>
+    <% elsif time_left <= 3.days %>
       <tr class="table-warning">
+    <% else %>
+      <tr class="table-light">
     <% end %>
         <td scope="row"><%= task.taskname %></td>
+        <td><%= time_ago_in_words(Time.now - time_left).capitalize %></td>                
         <td><%= task.deadline %></td>
         <td>
           <% (1..task.importance).each { %>
@@ -30,7 +35,7 @@
         <td><%= task.category %></td>
         <!-- <td><%#= link_to 'Show', task %></td> -->
         <td><%= link_to icon('fas', 'edit'), edit_task_path(task) %></td>
-        <td><%= link_to icon('fas', 'trash-alt'), task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to icon('fas', 'trash-alt'), task, method: :delete, data: { confirm: 'Are you sure to delete the task?'} %></td>
       </tr>
     <% end %>
   </tbody>
