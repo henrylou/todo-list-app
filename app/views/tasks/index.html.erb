@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @tasks.each do |task| %> 
+    <% current_user.tasks.each do |task| %> 
       <tr class="table-danger">
         <td scope="row"><%= task.taskname %></td>
         <td><%= task.deadline %></td>
