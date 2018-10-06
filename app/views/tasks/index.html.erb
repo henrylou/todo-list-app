@@ -10,6 +10,7 @@
       <th scope="col">Deadline</th>
       <th scope="col">Importance</th>
       <th scope="col">Category</th>
+      <th scope="col">Show</th>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
       <th scope="col">Status</th>
@@ -37,7 +38,7 @@
           <% } %>
         </td>
         <td><%= task.category %></td>
-        <!-- <td><%#= link_to 'Show', task %></td> -->
+        <td><%= link_to icon('fas', 'eye'), task %></td>
         <td><%= link_to icon('fas', 'edit'), edit_task_path(task) %></td>
         <td><%= link_to icon('fas', 'trash-alt'), task, method: :delete, data: { confirm: 'Are you sure to delete the task?'} %></td>
         <% if task.completed == true %>

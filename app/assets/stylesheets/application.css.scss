@@ -17,42 +17,20 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-/*header style*/
-/*.header {*/
-  /*background-image: url('../images/headerback.jpg');*/
-/*  background-image: asset-url('bg.jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
+body {
+	font-family: "Helvetica";
 }
 
-.overlay {
-  position: absolute;
-  min-height: 100%;
-  min-width: 100%;
-  left: 0;
-  top: 0;
-  background: rgba(244, 244, 244, 0.59);
+.navbar {
+    margin-bottom: 10px;
 }
 
-.description {
-  position: relative;
-  top: 50%;
-  margin: auto;
-  width: 100%;
-  text-align: center;
-  font-size: 18px;
-  padding: 2em;
-
+body#home {
+   background-image: asset-url('bg2.jpg');
+   background-size: fix;
 }
-*/
-/*.description h1 {*/
-  /*color: #F97300 ;*/
-/*}*/
 
-/*.description p {*/
-  /*color: #666;*/
-  /*font-size: 20px;*/
-  /*width: 50%;*/
-  /*line-height: 1.5;*/
-/*}*/
+.jumbotron {
+   background: rgba(200, 54, 54, 0); 
+}
+
