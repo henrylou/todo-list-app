@@ -14,11 +14,13 @@
 @import "bootstrap";
 @import "bootswatch";
 @import "variables";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 /*header style*/
-.header {
+/*.header {*/
   /*background-image: url('../images/headerback.jpg');*/
-  background-image: asset-url('bg.jpg');
+/*  background-image: asset-url('bg.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -43,14 +45,14 @@
   padding: 2em;
 
 }
-
-.description h1 {
+*/
+/*.description h1 {*/
   /*color: #F97300 ;*/
-}
+/*}*/
 
-.description p {
+/*.description p {*/
   /*color: #666;*/
-  font-size: 20px;
+  /*font-size: 20px;*/
   /*width: 50%;*/
-  line-height: 1.5;
-}
+  /*line-height: 1.5;*/
+/*}*/
