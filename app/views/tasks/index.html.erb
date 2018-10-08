@@ -44,7 +44,8 @@
         <% if task.completed == true %>
           <td><%= "Completed" %></td>
         <% else %>
-          <td><%= "Inprogress" %></td>
+          <td><%= link_to icon('fas', 'edit'), task, method: :update_status, data: { confirm: 'Are you sure that you have completed the task?'} %>
+          <%= "Inprogress" %></td>
         <% end %>
       </tr>
     <% end %>
