@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th scope="col">Task Name</th>
-      <th scope="col">Time Left</th>
       <th scope="col">Deadline</th>
       <th scope="col">Importance</th>
       <th scope="col">Category</th>
@@ -22,6 +21,8 @@
     <% time_left = task.deadline - Time.now %>
     <% if task.completed == true %>
       <tr class="table-success">
+    <% elsif time_left < 0 %>
+      <tr class="bg-danger">
     <% elsif time_left <= 24.hours %>
       <tr class="table-danger">
     <% elsif time_left <= 3.days %>
@@ -29,9 +30,8 @@
     <% else %>
       <tr class="table-light">
     <% end %>
-        <td scope="row"><%= task.taskname %></td>
-        <td><%= time_ago_in_words(Time.now - time_left).capitalize %></td>                
-        <td><%= task.deadline %></td>
+        <td scope="row"><%= task.taskname %></td>         
+        <td><%= task.deadline.strftime("%a %b %d %H:%M") %></td>
         <td>
           <% (1..task.importance).each { %>
             <%= icon('fas', 'star') %>        
@@ -42,10 +42,20 @@
         <td><%= link_to icon('fas', 'edit'), edit_task_path(task) %></td>
         <td><%= link_to icon('fas', 'trash-alt'), task, method: :delete, data: { confirm: 'Are you sure to delete the task?'} %></td>
         <% if task.completed == true %>
-          <td><%= "Completed" %></td>
+          <td>
+            <%= icon('far', 'check-circle') %>
+            <%= "Completed" %>
+          </td>
+        <% elsif Time.now > task.deadline %>
+          <td>
+            <%= icon('far', 'times-circle') %>
+            <%= "Expired" %>
+          </td>
         <% else %>
-          <td><%= link_to icon('fas', 'edit'), task, method: :update_status, data: { confirm: 'Are you sure that you have completed the task?'} %>
-          <%= "Inprogress" %></td>
+          <td>
+            <%= link_to icon('far', 'circle'), task, method: :update_status, data: { confirm: 'Are you sure that you have completed the task?'} %>
+            <%= distance_of_time_in_words(Time.now, task.deadline).capitalize %>
+          </td>
         <% end %>
       </tr>
     <% end %>
