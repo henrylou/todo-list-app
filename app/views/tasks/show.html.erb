@@ -6,6 +6,7 @@
   <div class="alert alert-dismissible alert-info">     
     <% if @task.description.nil? || @task.description.empty? %>
       <h5 class="center">The task doesn't contain any description.</h5>
+      <p class="center">Please click on "Edit" to add your descrption.</p>
     <% else %>
       <p><%= @task.description %></p>
     <% end %>

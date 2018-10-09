@@ -10,7 +10,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <% if controller_name == 'welcome' %>
+    <% page = 'welcome' %>
+  <% end %>
+
+  <body class="<%= page %>">
     <%= render 'layouts/navigation' %>
     <% if notice %>
       <div class="container alert alert-dismissible alert-success">
