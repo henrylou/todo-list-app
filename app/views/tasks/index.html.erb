@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%#= notice %></p> -->
 
 <h1 class="center">Tasks</h1>
 
@@ -43,12 +43,12 @@
         <td><%= link_to icon('fas', 'trash-alt'), task, method: :delete, data: { confirm: 'Are you sure to delete the task?'} %></td>
         <% if task.completed == true %>
           <td>
-            <%= icon('far', 'check-circle') %>
+            <%= link_to icon('far', 'check-circle'), task, method: :update_status, data: { confirm: 'Are you sure to continue this task?'} %>
             <%= "Completed" %>
           </td>
         <% elsif Time.now > task.deadline %>
           <td>
-            <%= icon('far', 'times-circle') %>
+            <%= link_to icon('far', 'times-circle'), task, method: :update_status, data: { confirm: 'Are you sure that you have completed the task?'} %>
             <%= "Expired" %>
           </td>
         <% else %>

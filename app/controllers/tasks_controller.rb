@@ -66,7 +66,7 @@ class TasksController < ApplicationController
   end
 
   def update_status
-    @task.completed = true
+    @task.completed = !@task.completed
     @task.save
     respond_to do |format|
       format.html { redirect_to tasks_url, notice: @task.taskname + ' has been completed.' }
