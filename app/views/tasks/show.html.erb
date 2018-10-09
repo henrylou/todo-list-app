@@ -1,34 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Taskname:</strong>
-  <%= @task.taskname %>
-</p>
+<h2 class="center"><%= @task.taskname %></h2>
 
-<p>
-  <strong>Deadline:</strong>
-  <%= @task.deadline %>
-</p>
+<div class="container" style="margin-top: 4%; margin-bottom: 6%">     
+  <% if @task.description.nil? || @task.description.empty? %>
+    <h5 class="center">The task doesn't contain any description.</h5>
+  <% else %>
+    <p><%= @task.description %></p>
+  <% end %>
+</div>
 
-<p>
-  <strong>Importance:</strong>
-  <%= @task.importance %>
-</p>
+<div class="container">
+  <div class="center">
+      Deadline: <%= @task.deadline.strftime("%a %b %d %H:%M") %> &nbsp;       
+      <% time_left = @task.deadline - Time.now %>
+      <% if @task.completed == true %>
+        <span class="badge badge-success">Completed</span>          
+      <% elsif time_left < 0 %>
+        <span class="badge badge-secondary">Expired</span>                
+      <% elsif time_left <= 24.hours %>
+        <span class="badge badge-danger">
+          <%= distance_of_time_in_words(Time.now, @task.deadline).capitalize %>
+        </span>          
+      <% elsif time_left <= 3.days %>
+        <span class="badge badge-warning">
+          <%= distance_of_time_in_words(Time.now, @task.deadline).capitalize %>
+        </span>          
+      <% else %>
+        <span class="badge badge-success">
+          <%= distance_of_time_in_words(Time.now, @task.deadline).capitalize %>
+        </span>          
+      <% end %> &nbsp;     
+      <%= @task.category %> &nbsp;  
+      <% (1..@task.importance).each { %>
+        <%= icon('fas', 'star') %>        
+      <% } %>
+  </div>
+</div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @task.category %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @task.user_id %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<div class="form-group col-sm-4">
+  <%= link_to 'Edit', edit_task_path(@task), class: "btn btn-outline-success" %>
+  <%= link_to 'Back', tasks_path, class: "btn btn-danger" %>
+</div>
