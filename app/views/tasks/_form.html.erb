@@ -53,19 +53,21 @@
   
   <div class="form-group field">
     <div class="control-label col-sm-12">Importance</div>
-    <div class="btn-group btn-group-toggle col-sm-8" data-toggle="buttons">
-      <label class="btn btn-outline-warning">
-        <input type="radio" name="task[importance]" id="option1" value=3 autocomplete="off">
-        <%= icon('fa', 'star') + icon('fa', 'star') + icon('fa', 'star') %> 
-      </label> &nbsp;
-      <label class="btn btn-outline-warning">
-        <input type="radio" name="task[importance]" id="option2" value=2 autocomplete="off">
-        <%= icon('fa', 'star') + icon('fa', 'star') %>
-      </label> &nbsp;
-      <label class="btn btn-outline-warning">
-        <input type="radio" name="task[importance]" id="option3" value=1 autocomplete="off">
-        <%= icon('fa', 'star') %>
-      </label>
+    <div class="col-sm-8" style="margin-top: 1%;">
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-warning">
+          <input type="radio" name="task[importance]" id="option1" value=3 autocomplete="off">
+          <%= icon('fa', 'star') + icon('fa', 'star') + icon('fa', 'star') %> 
+        </label> &nbsp;
+        <label class="btn btn-outline-warning">
+          <input type="radio" name="task[importance]" id="option2" value=2 autocomplete="off">
+          <%= icon('fa', 'star') + icon('fa', 'star') %>
+        </label> &nbsp;
+        <label class="btn btn-outline-warning">
+          <input type="radio" name="task[importance]" id="option3" value=1 autocomplete="off">
+          <%= icon('fa', 'star') %>
+        </label>
+      </div>
     </div>
   </div>  
 
@@ -85,7 +87,7 @@
  -->
   <div class="form-group field">
     <div class="control-label col-sm-12">Category</div>
-    <div class="btn-group btn-group-toggle col-sm-8" data-toggle="buttons">
+    <div class="btn-group btn-group-toggle col-sm-8" data-toggle="buttons" style="margin-top: 1%;">
       <label class="btn btn-outline-info">
         <input type="radio" name="task[category]" id="option1" value="Study" autocomplete="off">
         <%= icon('fas', 'university') %> Study
