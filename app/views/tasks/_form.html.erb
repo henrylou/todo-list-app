@@ -22,6 +22,15 @@
 
   <div class="form-group field">
     <div class="control-label col-sm-4">
+      <%= form.label :description %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.text_area :description, rows: 5, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group field">
+    <div class="control-label col-sm-4">
       <%= form.label :deadline %>
     </div>
     <div class="col-sm-8">
@@ -30,24 +39,30 @@
   </div>
   
   <div class="form-group field">
-    <div class="control-label col-sm-4">
+    <div class="control-label col-sm-4 ">    
       <%= form.label :importance %>
     </div>
     <div class="col-sm-8">
-      <%= form.radio_button :importance, 3 %> 3 stars
-      <%= form.radio_button :importance, 2 %> 2 stars
-      <%= form.radio_button :importance, 1 %> 1 star
+      <%= form.radio_button :importance, 3 %>
+      <%= icon('fa', 'star') + icon('fa', 'star') + icon('fa', 'star') %> &nbsp;
+      <%= form.radio_button :importance, 2 %>
+      <%= icon('fa', 'star') + icon('fa', 'star') %> &nbsp;
+      <%= form.radio_button :importance, 1 %>
+      <%= icon('fa', 'star') %>
     </div>
-  </div>
+  </div> 
 
   <div class="form-group field">
     <div class="control-label col-sm-12">
       <%= form.label :category %>
     </div>
     <div class="col-sm-8">
-      <%= form.radio_button :category, "Work" %> Work
-      <%= form.radio_button :category, "School" %> School
-      <%= form.radio_button :category, "Others" %> Others
+      <%= form.radio_button :category, "Study" %> <%= icon('fas', 'university') %> Study &nbsp;
+      <%= form.radio_button :category, "Work" %><%= icon('fas', 'briefcase') %> Work&nbsp;
+      <%= form.radio_button :category, "Family" %><%= icon('fas', 'home') %> Family &nbsp;
+      <%= form.radio_button :category, "Friends" %><%= icon('fas', 'user-friends') %> Friends &nbsp;
+      <%= form.radio_button :category, "Health" %><%= icon('fas', 'medkit') %> Health &nbsp;
+      <%= form.radio_button :category, "Others" %><%= icon('fas', 'question-circle') %> Others &nbsp;
     </div>
   </div>
 

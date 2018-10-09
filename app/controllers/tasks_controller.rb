@@ -10,6 +10,9 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    if @task.user != current_user
+      redirect_to tasks_url
+    end
   end
 
   # GET /tasks/new
