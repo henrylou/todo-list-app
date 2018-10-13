@@ -1,9 +1,13 @@
-<div class="form-group col-sm-12">
-  <h2>New Task</h2>
-</div>
+<div class="custom-bg">
+  <div class="container mt-3">
+    <div class="form-group col-sm-12">
+      <h2>New Task</h2>
+    </div>
 
-<%= render 'form', task: @task %>
+    <%= render 'form', task: @task %>
 
-<div class="form-group col-sm-4">
-  <%= link_to 'Back', tasks_path, class: "btn btn-outline-danger btn-sm" %>
+    <div class="form-group col-sm-4">
+      <%= link_to 'Back', tasks_path, class: "btn btn-outline-danger btn-sm" %>
+    </div>
+  </div>
 </div>
