@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Too Doo</title>
+    <title>Time Master</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,11 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <% if controller_name == 'welcome' %>
-    <% page = 'welcome' %>
-  <% end %>
-
-  <body class="<%= page %>">
+  <body>
     <%= render 'layouts/navigation' %>
     <% if notice %>
       <div class="container alert alert-dismissible alert-success">
@@ -28,8 +24,7 @@
         <%= alert %></p>
       </div>
     <% end %>
-    <div class="container">
-      <%= yield %>
-    </div>
+   
+    <%= yield %>
   </body>
 </html>
