@@ -33,3 +33,25 @@ body {
   background-size: fix;
   background-image: asset-url('bg.jpg');
 }
+
+.custom-bg {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  /*padding-top: calc(7rem + 72px);*/
+  padding-bottom: 7rem;
+  background: linear-gradient(0deg, #b1ecf9 0%, #f4fdff 100%);
+  /*background: url('http://placehold.it/1920x1080'); */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+@media (min-width: 992px) {
+  .custom-bg {
+    /*padding-top: calc(10rem + 55px);*/
+    padding-bottom: 10rem;
+  }
+}
+
