@@ -26,7 +26,7 @@
       <%= form.label :description %>
     </div>
     <div class="col-sm-8">
-      <%= form.text_area :description, rows: 3, class: "form-control", placeholder: "Max: 300 (You can leave it blank)" %>
+      <%= form.text_area :description, rows: 3, class: "form-control", placeholder: "Max: 300 (Leave blank if you don't want to add a description)" %>
     </div>
   </div>
 
@@ -35,10 +35,10 @@
       <%= form.label :deadline %>
     </div>
     <div class="col-sm-8">
-      <%= form.datetime_select :deadline, class: "form-control" %>
+      <%= form.datetime_select :deadline, order: [:month, :day, :year], start_year: 2018, ampm: true, minute_step: 10, class: "form-control input-mini" %>
     </div>
   </div>
-  
+
 <!-- <div class="form-group field">
   <div class="control-label col-sm-4 ">    
     <%#= form.label :importance %>
@@ -53,17 +53,17 @@
   
   <div class="form-group field">
     <div class="control-label col-sm-12">Importance</div>
-    <div class="col-sm-8" style="margin-top: 1%;">
+    <div class="col-sm-8 mt-1">
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-outline-warning">
+        <label class="btn btn-outline-warning <%= 'active' if task.importance == 3 %>">
           <input type="radio" name="task[importance]" id="option1" value=3 autocomplete="off">
           <%= icon('fa', 'star') + icon('fa', 'star') + icon('fa', 'star') %> 
         </label> &nbsp;
-        <label class="btn btn-outline-warning">
+        <label class="btn btn-outline-warning <%= 'active' if task.importance == 2 %>">
           <input type="radio" name="task[importance]" id="option2" value=2 autocomplete="off">
           <%= icon('fa', 'star') + icon('fa', 'star') %>
         </label> &nbsp;
-        <label class="btn btn-outline-warning">
+        <label class="btn btn-outline-warning <%= 'active' if task.importance == 1 %>">
           <input type="radio" name="task[importance]" id="option3" value=1 autocomplete="off">
           <%= icon('fa', 'star') %>
         </label>
@@ -76,39 +76,39 @@
       <%#= form.label :category %>
     </div>
     <div class="col-sm-8">
-      <%#= form.radio_button :category, "Study" %> <%= icon('fas', 'university') %> Study &nbsp;
-      <%#= form.radio_button :category, "Work" %><%= icon('fas', 'briefcase') %> Work &nbsp;
-      <%#= form.radio_button :category, "Family" %><%= icon('fas', 'home') %> Family &nbsp;
-      <%#= form.radio_button :category, "Friends" %><%= icon('fas', 'user-friends') %> Friends &nbsp;
-      <%#= form.radio_button :category, "Health" %><%= icon('fas', 'medkit') %> Health &nbsp;
-      <%#= form.radio_button :category, "Others" %><%= icon('fas', 'question-circle') %> Others &nbsp;
+      <%#= form.radio_button :category, "Study" %> <%#= icon('fas', 'university') %> Study &nbsp;
+      <%#= form.radio_button :category, "Work" %><%#= icon('fas', 'briefcase') %> Work &nbsp;
+      <%#= form.radio_button :category, "Family" %><%#= icon('fas', 'home') %> Family &nbsp;
+      <%#= form.radio_button :category, "Friends" %><#%= icon('fas', 'user-friends') %> Friends &nbsp;
+      <%#= form.radio_button :category, "Health" %><%#= icon('fas', 'medkit') %> Health &nbsp;
+      <%#= form.radio_button :category, "Others" %><%#= icon('fas', 'question-circle') %> Others &nbsp;
     </div>
   </div>
  -->
   <div class="form-group field">
     <div class="control-label col-sm-12">Category</div>
-    <div class="btn-group btn-group-toggle col-sm-8" data-toggle="buttons" style="margin-top: 1%;">
-      <label class="btn btn-outline-info">
+    <div class="btn-group btn-group-toggle col-sm-8 mt-1" data-toggle="buttons">
+      <label class="btn btn-outline-info <%= 'active' if task.category == 'Study' %>">
         <input type="radio" name="task[category]" id="option1" value="Study" autocomplete="off">
         <%= icon('fas', 'university') %> Study
       </label> &nbsp;
-      <label class="btn btn-outline-info">
+      <label class="btn btn-outline-info <%= 'active' if task.category == 'Work' %>">
         <input type="radio" name="task[category]" id="option2" value="Work" autocomplete="off">
         <%= icon('fas', 'briefcase') %> Work
       </label> &nbsp;
-      <label class="btn btn-outline-info">
+      <label class="btn btn-outline-info <%= 'active' if task.category == 'Family' %>">
         <input type="radio" name="task[category]" id="option3" value="Family" autocomplete="off">
         <%= icon('fas', 'home') %> Family      
       </label> &nbsp;
-      <label class="btn btn-outline-info">
+      <label class="btn btn-outline-info <%= 'active' if task.category == 'Friends' %>">
         <input type="radio" name="task[category]" id="option3" value="Friends" autocomplete="off">
         <%= icon('fas', 'user-friends') %> Friends      
       </label> &nbsp;
-      <label class="btn btn-outline-info">
+      <label class="btn btn-outline-info <%= 'active' if task.category == 'Health' %>">
         <input type="radio" name="task[category]" id="option3" value="Health" autocomplete="off">
         <%= icon('fas', 'medkit') %> Health    
       </label> &nbsp;
-      <label class="btn btn-outline-info">
+      <label class="btn btn-outline-info <%= 'active' if task.category == 'Others' %>">
         <input type="radio" name="task[category]" id="option3" value="Others" autocomplete="off">
         <%= icon('fas', 'question-circle') %> Others
       </label>
